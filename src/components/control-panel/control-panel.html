@@ -1,0 +1,15 @@
+﻿<section class="control-panel">
+    <div class="control-panel__group">
+        <track-control @change="setSpeed" id="tc01" :initial-value=85></track-control>
+    </div>
+
+    <div class="control-panel__group">
+        <control-button @click="play" :display-text='["Play", "Pause"]'>Play</control-button>
+    </div>
+
+    <div class="control-panel__group">
+        <control-button @click="edit" :display-text='["Edit", "Done"]'>Edit</control-button>
+        <control-button @click="clear">Clear</control-button>
+        <control-button @click="reset">Reset</control-button>
+    </div>
+</section>

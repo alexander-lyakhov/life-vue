@@ -1,0 +1,36 @@
+﻿<div class="life screen-center" :class="status">
+    <life-canvas width="600" height="600"
+        @mouseDown="action"
+        @renderComplete="wait"
+    >
+    </life-canvas>
+
+    <div class="life-mode noselect">
+        <svg v-show="isPlayMode" class="status-icon status-icon__play" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5v14l11-7z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+        </svg>
+
+        <svg v-show="isPauseMode" class="status-icon status-icon__pause" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+        </svg>
+
+        <svg  v-show="isEditMode" class="status-icon status-icon__edit" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+        </svg>
+
+        <span class="status-text">{{status}}</span>
+    </div>
+
+    <control-panel
+        @play="play"
+        @pause="pause"
+        @startEdit="startEdit"
+        @stopEdit="stopEdit"
+        @reset="reset"
+        @clear="clear"
+    >
+    </control-panel>
+</div>

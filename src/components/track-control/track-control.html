@@ -1,0 +1,18 @@
+﻿<div id="trackbar-speed" class="track-control noselect">
+
+    <label class="track-control__caption">Speed</label>
+
+    <div class="track-control__shell">
+        <div class="track-control__segments-wrapper">
+            <div class="track-control__segment" v-for="(n, index) in 20" :class="{on: isSegmentOn(index)}"></div>
+        </div>
+
+        <div class="track-control__segments-touch noselect"
+            @mousedown="startDrag"
+            @mouseup="stopDrag"
+            v-wheel="mouseWheelHandler">
+        </div>
+    </div>
+
+    <div class="track-control__value">{{value}}%</div>
+</div>

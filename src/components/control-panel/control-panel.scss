@@ -1,0 +1,18 @@
+﻿.control-panel {
+    background: #333;
+    box-sizing: border-box;
+    width: 200px;
+    height: 100%;
+    float: right;
+}
+
+.control-panel__group {
+    margin: 0 6px 8px 6px;
+}
+
+.control-panel__separator {
+    border: none;
+    border-bottom: 1px solid #666;
+    height: 0;
+    margin: 0 6px;
+}

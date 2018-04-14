@@ -1,0 +1,49 @@
+﻿.life {
+    border: 1px solid #960;
+    box-sizing: content-box;
+    width: 802px;
+    height: 602px;
+    margin: -301px 0 0 -401px;
+
+    &.pause {
+    }
+
+    &.play {
+        border-color: #0aa;
+    }
+
+    &.edit {
+        border-color: #ec0;
+        cursor: url(./img/cursor-cross.gif) 7 7, auto;
+    }
+}
+
+.life-mode {
+    font: 13px 'bicubik';
+    color: #c93;
+    text-align: right;
+    letter-spacing: 1px;
+    height: 28px;
+    line-height: 28px;
+    display: block;
+    position: absolute;
+    top: -28px;
+    right: 0;
+
+    .status-icon__play {
+        fill: #099;
+    }
+
+    .status-icon__pause {
+        fill: #c60;
+    }
+
+    .status-icon__edit {
+        fill: #c93;
+    }
+
+    .status-text {
+        vertical-align: top;
+        display: inline-block;
+    }
+}
