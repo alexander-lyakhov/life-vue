@@ -3,7 +3,15 @@
     box-sizing: border-box;
     width: 200px;
     height: 100%;
+    position: relative;
     float: right;
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        bottom: 20px;
+        transform: translate(-50%);
+    }
 }
 
 .control-panel__group {

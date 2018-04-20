@@ -22,59 +22,32 @@ a {
     user-select: none;
 }
 
-.to-home {
-    font: 18px terminal;
-    height: 32px;
-    line-height: 32px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 0 8px;
-}
-
-.to-home a {
-    color: #999;
-}
-
-.to-home a:hover {
-    color: #ccc;
-}
-
 .screen-center {
     position: absolute;
     left: 50%;
     top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /*
- *  Copyright
+ *  Footer
  */
 
-.copyright {
-    font: 13px verdana;
-    color: #999;
+footer {
     text-align: center;
     width: 100%;
-    height: 24px;
-    line-height: 24px;
-    margin-right: 200px;
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
 }
 
-.copyright span {
-    background: #000;
-    margin: 0 0 0 -200px;
+.svg-icon path {
+    fill: #808080;
 }
 
-.copyright__link {
-    /*
-    font-weight: bold;
-    color: #999;
-    */
-    color: #999;
+.svg-icon path:hover {
+    fill: #ccc;
 }
 
-.copyright__link:hover {
-    color: #c93;
+.social-link:hover .svg-icon path {
+    fill: #ccc;
 }

@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var UglifyJSWebpackPlugin = require('uglifyjs-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
 
@@ -16,20 +17,19 @@ module.exports = {
     //=======================================================================================================
     //  For cases when we should copy 'index.html' file into 'dist' directory
     //=======================================================================================================
-    /*
     entry: [
-        './index.html',
-        './src/app.js'
+        './index-template.html',
+        './src/main.js'
     ],
-    */
 
+    /*
     entry: {
         app: './src/app.js'
     },
+    */
 
     output: {
-        //path: projectPath,
-        path: path.resolve(projectPath, 'build'),
+        path: path.resolve(projectPath, 'dist'),
         filename: './build.js'
     },
 
@@ -122,8 +122,8 @@ module.exports = {
                 loader: 'file-loader',
                 options: {
                     name: '[name].[ext]',
-                    outputPath: 'img'
-                    //publicPath: '../img' // prefix for compiled css
+                    outputPath: 'assets/images',
+                    publicPath: 'assets/images' // prefix for compiled css
                 }
             },
 
@@ -135,8 +135,8 @@ module.exports = {
                 loader: 'file-loader',
                 options: {
                     name: '[name].[ext]',
-                    outputPath: 'fonts'
-                    //publicPath: 'fonts' // prefix for compiled css
+                    outputPath: 'assets/fonts',
+                    publicPath: 'assets/fonts' // prefix for compiled css
                 }
             },
 
@@ -147,8 +147,8 @@ module.exports = {
                 test: /\.html$/,
                 loader: 'file-loader',
                 options: {
-                    name: '[name].[ext]',
-                    outputPath: 'dist',
+                    name: 'index.html',
+                    outputPath: '/',
                     publicPath: '/'
                 }
             }
@@ -164,7 +164,16 @@ module.exports = {
 
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
-        new ExtractTextPlugin("./build.css", {allChunks: true})
+
+        new ExtractTextPlugin("./build.css", {allChunks: true}),
+
+        /*
+        new HtmlWebpackPlugin({
+            title: 'Life Vue',
+            template: './src/index.html',
+            minify: NODE_ENV === 'production'
+        })
+        */
    ]
 };
 

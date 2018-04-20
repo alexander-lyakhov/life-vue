@@ -1,12 +1,15 @@
 ﻿export default {
     mounted: function() {
 
-        var {app} = window;
+        let app = window.app = window.app || {};
 
-        app = Object.assign(app || {}, {
-            componentByID: {},
-            componentsByName: {}
-        });
+        if (!app.componentByID) {
+            app.componentByID = {};
+        }
+
+        if (!app.componentsByName) {
+            app.componentsByName = {};
+        }
 
         if (this.$el.id) {
             app.componentByID[this.$el.id] = this;
