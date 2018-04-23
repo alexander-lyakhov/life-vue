@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var UglifyJSWebpackPlugin = require('uglifyjs-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 var path = require('path');
 
 
@@ -17,16 +18,16 @@ module.exports = {
     //=======================================================================================================
     //  For cases when we should copy 'index.html' file into 'dist' directory
     //=======================================================================================================
+    /*
     entry: [
         './index-template.html',
         './src/main.js'
     ],
-
-    /*
-    entry: {
-        app: './src/app.js'
-    },
     */
+
+    entry: {
+        app: './src/main.js'
+    },
 
     output: {
         path: path.resolve(projectPath, 'dist'),
@@ -151,7 +152,7 @@ module.exports = {
                     outputPath: '/',
                     publicPath: '/'
                 }
-            }
+            },
 
             /*
             {
@@ -166,6 +167,12 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
 
         new ExtractTextPlugin("./build.css", {allChunks: true}),
+
+        new CopyWebpackPlugin([{
+            from: 'src/assets',
+            to: 'assets/images',
+            toType: 'dir'
+        }])
 
         /*
         new HtmlWebpackPlugin({
